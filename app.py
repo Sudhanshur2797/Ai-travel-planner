@@ -8,7 +8,7 @@ st.title("AI Travel Planner for Students")
 st.write("Smart, budget-friendly trip planning powered by AI")
 
 
-api_key = "AIzaSyB6_j6Macxj9u-gyQO2aE4N8sCV_Kjlzec"
+api_key = os.environ.get(GEMINI_API_KEY")
 
 with st.form("trip_form"):
     col1, col2, col3 = st.columns(3)
@@ -165,3 +165,4 @@ if itinerary:
         except Exception as e:
             st.error(f"Map rendering error: {e}")
             st.table([{**l, 'lat': f"{l['lat']:.5f}", 'lng': f"{l['lng']:.5f}"} for l in locations])
+
